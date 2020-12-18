@@ -1,23 +1,14 @@
 import React from 'react';
-import Header from './Header'; 
-import Navbar from './Navbar'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Map from './Map';
-// import Hearder from './Header';
+import MainControl from './MainControl';
+
 
 function App() {
-  return ( 
+  return (
     <React.Fragment>
-      <Router> 
-      <Navbar/>
-      <Switch>
-        <Route path='/' exact />
-      </Switch>
-      </Router>
-      <Header/>
-      <Map/>
+      <div className="container">
+        <MainControl />
+      </div>
     </React.Fragment>
   );
 }
-
 export default App;
