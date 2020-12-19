@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { link } from 'react-router-dom';
+// import React from 'react';
+// import { link } from 'react-router-dom';
+// // import './Navbar';
 
-function Navbar() {
-  return (
-    <>
-    <nav className="navbar">
-      <div className="navbar-container">
-        <link to="/" className="navbar-logo"> 
-        fas <i class="fas fa-camera"></i>
-        </link>
-      </div>
-    </nav>
-  </>
-  )
-}
+// function Navbar() {
+//   return (
+//     <React.Fragment>
+//     <nav className="navbar">
+//       <div className="navbar-container">
+//         <link to="/" className="navbar-logo" /> 
+//         Caribbean Globe <i class="fas fa-globe-americas"></i>
+//       </div>
+//     </nav>
+//   </React.Fragment>
+//   )
+// }
 
-export default Navbar;
+// export default Navbar;
 

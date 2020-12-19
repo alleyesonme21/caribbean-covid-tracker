@@ -1,7 +1,7 @@
 import * as firebase from "firebase";
 import "firebase/firestore";
 
-const firebaseConfig = { // to connect firebase to my code.
+const firebaseConfig = { 
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
@@ -12,6 +12,6 @@ const firebaseConfig = { // to connect firebase to my code.
 }
 
 firebase.initializeApp(firebaseConfig);
-firebase.firestore(); // using firestore as database
+firebase.firestore(); 
 
 export default firebase;

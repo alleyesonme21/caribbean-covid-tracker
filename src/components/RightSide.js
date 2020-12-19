@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-function RightSide() {
-  return (
-    <h1>Right side of the app</h1>
-  )
-}
+// function RightSide() {
+//   return (
+//     <h1>Right side of the app</h1>
+//   )
+// }
 
-export default RightSide;
+// export default RightSide;
