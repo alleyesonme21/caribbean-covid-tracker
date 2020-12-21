@@ -24,7 +24,7 @@ export const toggleHomeShowing = () => ({
 export const makeApiCall = () => {
   return dispatch => {
     dispatch(requestCountries);
-    return fetch(`https://www.googleapis.com/oauth2/v1/certs`)
+    return fetch(`http://localhost:5000/api/countries`)
     .then(response => response.json())
     .then(
       (jsonifiedResponse) => {
