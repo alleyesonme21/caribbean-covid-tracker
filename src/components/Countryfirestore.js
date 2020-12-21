@@ -1,102 +1,153 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Haiti from './../img/Haiti-flag.png';
-import Jamaica from './../img/Jamaica-flag.jpeg';
+import jamaica from './../img/Jamaica-flag.jpeg';
+import bahamas from './../img/Bahamas-flag.jpg';
+import puerto from './../img/puerto-rico-flag.jpg';
+import aruba from './../img/Aruba-flag.jpg';
+import trinidad from './../img/Trinidad-flag.jpg';
 import {useState} from 'react';
+// import cuba from './../img/Cuba-flag.jpg';
+import { Button } from 'react-bootstrap';
+import '../index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Card, Nav, ButtonGroup, DropdownButton, Dropdown,Carousel } from 'react-bootstrap';
 
 function Countryfirestore(props) {
 
-  function checkCountry(countries) {
-    if (countries === "Haiti") {
-      return <img className="haiti" src={Haiti} alt="flag" />
-    } else {
-      return <img className="jamaica" src={Jamaica} alt="flag" />;
+  function checkCountry(countryName) {
+    if (countryName === "Jamaica") {
+      return <img className="jamPic" src={jamaica} alt="flag" />
+
+    } else if (countryName === "Bahamas"){
+      return <img className="bahPic" src={bahamas} alt="flag" />;
+
+    } else if(countryName === "Aruba") {
+      return <img className="aruPic" src={aruba} alt="flag" />
+
+    } else if (countryName === "Puerto Rico") {
+      return <img className="aruPic" src={puerto} alt="flag" />
+
+    } else if (countryName === "Trinidad and Tobago") {
+      return <img className="tripic" src={trinidad} alt="flag" />
     }
   }
 
   const [filteredCountries, setFilteredCountries] = useState(props.countries.countries);
 
-  let countries = props.countries.countries.filter(countries => countries.country === "Haiti");
-  let cases = props.countries.countries.filter(countries => countries.cases === "");
-  let details = props.countries.countries.filter(countries => countries.details === "");
-  let date= props.countries.countries.filter(countries => countries.date === "");
-  // let arrival= props.countries.countries.filter();
-  // let testing= props.countries.countries.filter();
-  // let quarantine= props.countries.countries.filter();
-  // let positivity= props.countries.countries.filter();
+  let jamaica1 = props.countries.countries.filter(countries => countries.countryName === "Jamaica");
+
+  let bahamas1 = props.countries.countries.filter(countries => countries.countryName === "Bahamas");
+
+  let aruba1 = props.countries.countries.filter(countries => countries.countryName === "Aruba");
+
+  let trinidad1 = props.countries.countries.filter(countries => countries.countryName === "Trinidad and Tobago");
+
+  let puertoRico1 = props.countries.countries.filter(countries => countries.countryName === "Puerto Rico");
   
-  function showCountry() {
-    setFilteredCountries(countries);
+  function showJamaica() {
+    setFilteredCountries(jamaica1);
   };
 
-  function showCases() {
-    setFilteredCountries(cases);
+  function showBahama() {
+    setFilteredCountries(bahamas1);
   };
-  function showDetails() {
-    setFilteredCountries(details);
-  };
-
-  function showDate() {
-    setFilteredCountries(date);
+  function showAruba() {
+    setFilteredCountries(aruba1);
   };
 
-  function showArrival() {
-    setFilteredCountries(arrival);
-  };
-  function showTesting() {
-    setFilteredCountries(testing);
-  };
-  function showQuarantine() {
-    setFilteredCountries(quarantine);
-  };
-  function showPositivity() {
-    setFilteredCountries(positivity);
+  function showTrinadad() {
+    setFilteredCountries(trinidad1);
   };
 
-  function showAllCountry() {
-    setFilteredCountries();
-  }
+  function showPuerto() {
+    setFilteredCountries(puertoRico1);
+  };
+
+  function showAll() {
+    setFilteredCountries(props.countries.countries);
+  };
+
 
   return (
 
-    <React.Fragment>
-      <h1>Lists</h1>
+    <Container>
+ <h1>Country Detail</h1>
+<Carousel>
+  <Carousel.Item interval={1000}>
+    <img
+      onClick={() => showJamaica()}
+      className="d-block w-100"
+      src={jamaica}
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item interval={500}>
+    <img
+      onClick={() => showBahama()}
+      className="d-block w-100"
+      src={bahamas} 
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      onClick={() => showPuerto()}
+      className="d-block w-100"
+      src={puerto}
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      {/* <button className = "btn btn-danger space" onClick={() => showJamaica()}>Jamaica</button>    */}
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+
       <div className="filterByCountry">
         <h4>Filter</h4>
-        <button  onClick={() => showCountry()}>Country</button>                     
-        <button  onClick={() => showDate()}>Reopening-Date</button>
-        <button  onClick={() => showCases()}>Cases</button>
-        <button  onClick={() => showDetails()}>Reopening-Details</button>
-        <button  onClick={() => showArrival()}>Prearrival-Requirements</button>
-        <button  onClick={() => showTesting()}>Testing-Requirements</button>
-        <button  onClick={() => showQuarantine()}>Quarantine-Requirements</button>
-        <button  onClick={() => showPositivity()}>Positivity-Requirements</button>
+        <button className = "btn btn-danger space" onClick={() => showJamaica()}>Jamaica</button>                     
+        <button className = "btn btn-info space" onClick={() => showBahama()}>Bahamas</button>
+        <button className = "btn btn-info space" onClick={() => showAruba()}>Aruba</button>
+        <button className = "btn btn-info space" onClick={() => showTrinadad()}>Trinidad and Tobago</button>
+        <button className = "btn btn-info space" onClick={() => showPuerto()}>Puerto Rico</button>
+        <button className = "btn btn-info space" onClick={() => showAll()}>Reset Filters</button>
       </div>
 
       <ul className="center-align">
 
         {filteredCountries.map((country, index) =>
         
-          <div key={index}>
-            <div>
-              <div>
-                {checkCountry(country.country)}
+          <div key={index} className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+                {checkCountry(country.countryName)}
               </div>
               <li>
-                <div>
-                  <h3>Name: {country.name}</h3>
-                  <p><strong>Country:</strong> {country.country}</p>
-                  <p><strong>Cases:</strong> {country.cases}</p>
-                  <p><strong>Details:</strong> {country.details}</p>
-                  <p><strong>Date:</strong> {country.date}</p>
-                  <button onClick={() => props.whenAdoptClicked(props.index)}>see!</button>
+                <div className="flip-card-back">
+                  <p><strong>CountryName:</strong> {country.countryName}</p>
+                  <p><strong>Reopening Details:</strong> {country.openDetails}</p>
+                  <p><strong>Reopening Date:</strong> {country.openDate}</p>
+                  <p><strong>Pre-Arrival:</strong> {country.preArrival}</p>
+                  <p><strong>Quarantine Rules:</strong> {country.quarantine}</p>
+                  <p><strong>Rules for Positive Tests:</strong> {country.positiveTest}</p>
+                  {/* <button className = "btn btn-info btn-small" onClick={() => props.whenAdoptClicked(props.index)}>Adopt Me!</button> */}
                 </div>
               </li>
             </div>
           </div>
         )}
+
       </ul>
-    </React.Fragment>
+    </Container>
   );
 }
 
@@ -105,5 +156,147 @@ Countryfirestore.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.string
 }
-
 export default Countryfirestore;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import bahamas from './../img/Bahamas-flag.jpg';
+// import jamaica from './../img/Jamaica-flag.jpeg';
+// import {useState} from 'react';
+
+// function Countryfirestore(props) {
+
+//   function checkCountry(countryName) {
+//     if (countryName === "jamaica") {
+//       return <img className="jamaica" src={jamaica} alt="flag" />
+//     } else {
+//       return <img className="bahamas" src={bahamas} alt="flag" />;
+//     }
+//   }
+
+//   const [filteredCountries, setFilteredCountries] = useState(props.countries.countries);
+
+//   let countries = props.countries.countries.filter(countries => countries.country === "Jamaica");
+//   let cases = props.countries.countries.filter(countries => countries.cases === "");
+//   let details = props.countries.countries.filter(countries => countries.details === "");
+//   // let date= props.countries.countries.filter(countries => countries.date === "");
+//   // let arrival= props.countries.countries.filter();
+//   // let testing= props.countries.countries.filter();
+//   // let quarantine= props.countries.countries.filter();
+//   // let positivity= props.countries.countries.filter();
+  
+//   function showCountry() {
+//     setFilteredCountries(countries);
+//   };
+
+//   function showCases() {
+//     setFilteredCountries(cases);
+//   };
+//   function showDetails() {
+//     setFilteredCountries(details);
+//   };
+
+//   function showDate() {
+//     setFilteredCountries(date);
+//   };
+
+//   function showArrival() {
+//     setFilteredCountries(arrival);
+//   };
+//   function showTesting() {
+//     setFilteredCountries(testing);
+//   };
+//   function showQuarantine() {
+//     setFilteredCountries(quarantine);
+//   };
+//   function showPositivity() {
+//     setFilteredCountries(positivity);
+//   };
+
+//   // function showAllCountry() {
+//   //   setFilteredCountries();
+//   // }
+
+//   return (
+
+//     <React.Fragment>
+//       <h1>Lists</h1>
+//       <div className="filterByCountry">
+//         <h4>Filter</h4>
+//         <button  onClick={() => showCountry()}>Country</button>                     
+//         <button  onClick={() => showDate()}>Reopening-Date</button>
+//         <button  onClick={() => showCases()}>Cases</button>
+//         <button  onClick={() => showDetails()}>Reopening-Details</button>
+//         <button  onClick={() => showArrival()}>Prearrival-Requirements</button>
+//         <button  onClick={() => showTesting()}>Testing-Requirements</button>
+//         <button  onClick={() => showQuarantine()}>Quarantine-Requirements</button>
+//         <button  onClick={() => showPositivity()}>Positivity-Requirements</button>
+//       </div>
+
+//       <ul className="center-align">
+
+//         {filteredCountries.map((country, index) =>
+        
+//           <div key={index}>
+//             <div>
+//               <div>
+//                 {checkCountry(country.country)}
+//               </div>
+//               <li>
+//                 <div>
+//                   <h3>Name: {country.name}</h3>
+//                   <p><strong>Country:</strong> {country.country}</p>
+//                   <p><strong>Cases:</strong> {country.cases}</p>
+//                   <p><strong>Details:</strong> {country.details}</p>
+//                   <p><strong>Date:</strong> {country.date}</p>
+//                   <button onClick={() => props.whenAdoptClicked(props.index)}>see!</button>
+//                 </div>
+//               </li>
+//             </div>
+//           </div>
+//         )}
+//       </ul>
+//     </React.Fragment>
+//   );
+// }
+
+// Countryfirestore.propTypes = {
+//   countries: PropTypes.object,
+//   isLoading: PropTypes.bool,
+//   error: PropTypes.string
+// }
+
+// export default Countryfirestore;
+
+
+
+
+
+
+
+
+
