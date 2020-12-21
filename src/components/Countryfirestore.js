@@ -10,7 +10,7 @@ import {useState} from 'react';
 import { Button } from 'react-bootstrap';
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Card, Nav, ButtonGroup, DropdownButton, Dropdown,Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 function Countryfirestore(props) {
 
@@ -81,11 +81,11 @@ function Countryfirestore(props) {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
+      <h3>Click here</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={500}>
+  <Carousel.Item interval={1000}>
     <img
       onClick={() => showBahama()}
       className="d-block w-100"
@@ -93,11 +93,11 @@ function Countryfirestore(props) {
       alt="Third slide"
     />
     <Carousel.Caption>
-      <h3>Second slide label</h3>
+      <h3>Click here</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item>
+  <Carousel.Item interval={500}>
     <img
       onClick={() => showPuerto()}
       className="d-block w-100"
@@ -105,20 +105,44 @@ function Countryfirestore(props) {
       alt="Third slide"
     />
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      {/* <button className = "btn btn-danger space" onClick={() => showJamaica()}>Jamaica</button>    */}
+      <h3>Click here</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
+  <Carousel.Item interval={500}>
+    <img
+      onClick={() => showTrinadad()}
+      className="d-block w-100"
+      src={trinidad} 
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h3>Click here</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      onClick={() => showAruba()}
+      className="d-block w-100"
+      src={aruba} 
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h3>Click here</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  
 </Carousel>
 
       <div className="filterByCountry">
         <h4>Filter</h4>
-        <button className = "btn btn-danger space" onClick={() => showJamaica()}>Jamaica</button>                     
+        {/* <button className = "btn btn-danger space" onClick={() => showJamaica()}>Jamaica</button>                     
         <button className = "btn btn-info space" onClick={() => showBahama()}>Bahamas</button>
         <button className = "btn btn-info space" onClick={() => showAruba()}>Aruba</button>
         <button className = "btn btn-info space" onClick={() => showTrinadad()}>Trinidad and Tobago</button>
-        <button className = "btn btn-info space" onClick={() => showPuerto()}>Puerto Rico</button>
+        <button className = "btn btn-info space" onClick={() => showPuerto()}>Puerto Rico</button> */}
         <button className = "btn btn-info space" onClick={() => showAll()}>Reset Filters</button>
       </div>
 
@@ -127,12 +151,12 @@ function Countryfirestore(props) {
         {filteredCountries.map((country, index) =>
         
           <div key={index} className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
+            {/* <div className="flip-card-inner"> */}
+              {/* <div className="flip-card-front"> */}
                 {checkCountry(country.countryName)}
-              </div>
+              {/* </div> */}
               <li>
-                <div className="flip-card-back">
+                {/* <div className="flip-card-back"> */}
                   <p><strong>CountryName:</strong> {country.countryName}</p>
                   <p><strong>Reopening Details:</strong> {country.openDetails}</p>
                   <p><strong>Reopening Date:</strong> {country.openDate}</p>
@@ -140,10 +164,10 @@ function Countryfirestore(props) {
                   <p><strong>Quarantine Rules:</strong> {country.quarantine}</p>
                   <p><strong>Rules for Positive Tests:</strong> {country.positiveTest}</p>
                   {/* <button className = "btn btn-info btn-small" onClick={() => props.whenAdoptClicked(props.index)}>Adopt Me!</button> */}
-                </div>
+                {/* </div> */}
               </li>
             </div>
-          </div>
+          // </div>
         )}
 
       </ul>
