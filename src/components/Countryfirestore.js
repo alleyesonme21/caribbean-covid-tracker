@@ -5,32 +5,32 @@ import bahamas from './../img/Bahamas-flag.jpg';
 import puerto from './../img/puerto-rico-flag.jpg';
 import aruba from './../img/Aruba-flag.jpg';
 import trinidad from './../img/Trinidad-flag.jpg';
+import haiti from './../img/Haiti-flag.png';
 import {useState} from 'react';
-// import cuba from './../img/Cuba-flag.jpg';
-import { Button } from 'react-bootstrap';
+
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { Container,  Row, Col, Carousel } from 'react-bootstrap';
 
 function Countryfirestore(props) {
 
-  function checkCountry(countryName) {
-    if (countryName === "Jamaica") {
-      return <img className="jamPic" src={jamaica} alt="flag" />
+  // function checkCountry(countryName) {
+  //   if (countryName === "Jamaica") {
+  //     return <img className="jamPic" src={jamaica} alt="flag" />
 
-    } else if (countryName === "Bahamas"){
-      return <img className="bahPic" src={bahamas} alt="flag" />;
+  //   } else if (countryName === "Bahamas"){
+  //     return <img className="bahPic" src={bahamas} alt="flag" />;
 
-    } else if(countryName === "Aruba") {
-      return <img className="aruPic" src={aruba} alt="flag" />
+  //   } else if(countryName === "Aruba") {
+  //     return <img className="aruPic" src={aruba} alt="flag" />
 
-    } else if (countryName === "Puerto Rico") {
-      return <img className="aruPic" src={puerto} alt="flag" />
+  //   } else if (countryName === "Puerto Rico") {
+  //     return <img className="aruPic" src={puerto} alt="flag" />
 
-    } else if (countryName === "Trinidad and Tobago") {
-      return <img className="tripic" src={trinidad} alt="flag" />
-    }
-  }
+  //   } else if (countryName === "Trinidad and Tobago") {
+  //     return <img className="tripic" src={trinidad} alt="flag" />
+  //   }
+  // }
 
   const [filteredCountries, setFilteredCountries] = useState(props.countries.countries);
 
@@ -43,6 +43,7 @@ function Countryfirestore(props) {
   let trinidad1 = props.countries.countries.filter(countries => countries.countryName === "Trinidad and Tobago");
 
   let puertoRico1 = props.countries.countries.filter(countries => countries.countryName === "Puerto Rico");
+  let haiti1 = props.countries.countries.filter(countries => countries.countryName === "Haiti");
   
   function showJamaica() {
     setFilteredCountries(jamaica1);
@@ -63,17 +64,49 @@ function Countryfirestore(props) {
     setFilteredCountries(puertoRico1);
   };
 
+  function showHaiti() {
+    setFilteredCountries(haiti1);
+  };
+
   function showAll() {
     setFilteredCountries(props.countries.countries);
   };
 
 
   return (
-
     <Container>
+      <Row> 
+      <Col xs={12} md={8}>
+
+<div className="clearfix">
+    <div className="img-container">
+    <img onClick={() => showBahama()}  src={bahamas}  alt="Italy" style={{width:'100%'}}/> 
+    </div>
+    <div className="img-container">
+    <img onClick={() => showJamaica()} src={jamaica} alt="Forest" style={{width:'100%'}}/>
+    </div>
+    <div className="img-container">
+    <img onClick={() => showTrinadad()} src={trinidad} alt="Mountains" style={{width:'100%'}}/>
+    </div>
+</div>
+<div className="clearfix">
+    <div className="img-container">
+    <img onClick={() => showAruba()}  src={aruba}  alt="Italy" style={{width:'100%'}}/> 
+    </div>
+    <div className="img-container">
+    <img onClick={() => showPuerto()} src={puerto} alt="Forest" style={{width:'100%'}}/>
+    </div>
+    <div className="img-container">
+    <img onClick={() => showHaiti()} src={haiti} alt="Mountains" style={{width:'100%'}}/>
+    </div>
+</div>
+
+  {/* <Row>
+    <Col xs={12} md={8}>
+  
  <h1>Country Detail</h1>
 <Carousel>
-  <Carousel.Item interval={1000}>
+  <Carousel.Item >
     <img
       onClick={() => showJamaica()}
       className="d-block w-100"
@@ -85,7 +118,7 @@ function Countryfirestore(props) {
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={1000}>
+  <Carousel.Item >
     <img
       onClick={() => showBahama()}
       className="d-block w-100"
@@ -97,7 +130,7 @@ function Countryfirestore(props) {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={500}>
+  <Carousel.Item >
     <img
       onClick={() => showPuerto()}
       className="d-block w-100"
@@ -109,7 +142,7 @@ function Countryfirestore(props) {
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={500}>
+  <Carousel.Item >
     <img
       onClick={() => showTrinadad()}
       className="d-block w-100"
@@ -134,7 +167,9 @@ function Countryfirestore(props) {
     </Carousel.Caption>
   </Carousel.Item>
   
-</Carousel>
+</Carousel>*/}
+</Col>
+<Col xs={6} md={4}>  
 
       <div className="filterByCountry">
         <h4>Filter</h4>
@@ -153,11 +188,11 @@ function Countryfirestore(props) {
           <div key={index} className="flip-card">
             {/* <div className="flip-card-inner"> */}
               {/* <div className="flip-card-front"> */}
-                {checkCountry(country.countryName)}
+                {/* {checkCountry(country.countryName)} */}
               {/* </div> */}
               <li>
                 {/* <div className="flip-card-back"> */}
-                  <p><strong>CountryName:</strong> {country.countryName}</p>
+                  <p><strong>{country.countryName}</strong> </p>
                   <p><strong>Reopening Details:</strong> {country.openDetails}</p>
                   <p><strong>Reopening Date:</strong> {country.openDate}</p>
                   <p><strong>Pre-Arrival:</strong> {country.preArrival}</p>
@@ -171,6 +206,8 @@ function Countryfirestore(props) {
         )}
 
       </ul>
+      </Col>
+      </Row>
     </Container>
   );
 }
