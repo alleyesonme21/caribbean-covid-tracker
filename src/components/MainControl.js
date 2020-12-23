@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import * as a from '../actions';
 import { makeApiCall } from '../actions';
 
+
 class MainControl extends React.Component {
   constructor(props) {
     super(props);
-  }
+  } 
 
   handleClick = () => {
     console.log("Handle click reached");
@@ -28,8 +29,8 @@ class MainControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    currentlyVisibleState = <Countryfirestore callApi={this.props.countryfirestore} countries={this.props.countries}/> 
     if (this.props.countryShowing) {
-      currentlyVisibleState = <Countryfirestore callApi={this.props.countryfirestore} countries={this.props.countries}/>  
       buttonText = "Return to Home";
     } else {
       currentlyVisibleState = <Home />

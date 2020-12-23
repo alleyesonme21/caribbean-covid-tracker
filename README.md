@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+<br>
+<p align="center">
+  <u><big>|| <b>Caribbean Covid TrackerI</b> ||</big></u>
+</p>
+<p align="center">
+    <p align="center">
+    </p>
+    <p align="center"> 
+        | <a href="https://github.com/alleyesonme21">
+            <strong>Johnny Duverseau</strong>
+        </a> | 
+    </p>
+    <!-- Project Shields -->   
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <medium>Created on 12/23/2020,
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
+## 🌐 About the Project
 
-### `npm start`
+### 📖 Description
+A web API for travelers to the Caribbean to know the COVID reopening details, pre-arrival requirements, testing requirements, and quarantine requirements during the global pandemic. Currently v1.0.
+### 🦠 Known Bugs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Authorization not set up on client facing side of application, therefore it is not secure.
+Authentication is not set up, therefore email and password from user is not required. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### 🛠 Built With
+* VS Code
+* React
+* HTML
+* CSS
+* JSX
+* C#
+* ASP.NET Core MVC
+* MySQL Workbench
+* Entity Framework Core 2.2.0
+* Postman
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🏁 Getting Started
 
-### `npm run build`
+### ⚙️ Setup and Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  #### Cloning Client side 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  1) Navigate to the [caribbean-covid-tracker repository here](https://github.com/alleyesonme21/caribbean-covid-tracker). 
+  2) Click 'Clone or download' to reveal the HTTPS url ending with .git and the 'Download ZIP' option.
+  3) Open up your system Terminal or GitBash, navigate to your desktop with the command: `cd Desktop`, or whichever location suits you best.
+  4) Clone the repository to your desktop: `$ git clone https://github.com/alleyesonme21/caribbean-covid-tracker`
+  5) Run the command `cd caribbean-covid-tracker` to enter into the project directory.
+  6) View or Edit:
+      * Code Editor - Run the command `atom .` or `code .` to open the project in Atom or VisualStudio Code respectively for review and editing.
+      * Text Editor - Open by double clicking on any of the files to open in a text editor.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ### Cloning the api
 
-### `npm run eject`
+   1) Navigate to the [caribbean-covid-tracker-api repository here](https://github.com/alleyesonme21/caribbean-covid-tracker-api). 
+  2) Click 'Clone or download' to reveal the HTTPS url ending with .git and the 'Download ZIP' option.
+  3) Open up your system Terminal or GitBash, navigate to your desktop with the command: `cd Desktop`, or whichever location suits you best.
+  4) Clone the repository to your desktop: `$ git clone https://github.com/alleyesonme21/caribbean-covid-tracker-api`
+  5) Run the command `cd caribbean-covid-tracker-api` to enter into the project directory.
+  6) View or Edit:
+      * Code Editor - Run the command `atom .` or `code .` to open the project in Atom or VisualStudio Code respectively for review and editing.
+      * Text Editor - Open by double clicking on any of the files to open in a text editor.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  #### AppSettings
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  1) Create a new file in the caribbean-covid-tracker-api directory named `appsettings.json`
+  2) Add in the following code snippet to the new appsettings.json file:
+  
+  ```
+{
+    "Logging": {
+        "LogLevel": {
+        "Default": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=project_name;uid=root;pwd=YourPassword;"
+    }
+}
+  ```
+  3) Change the server, port, and user id as necessary. Replace 'YourPassword' with relevant MySQL password (set at installation of MySQL).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  #### Database  1) Navigate to caribbean-covid-tracker-api/CaribbeanCovidTracker directory using the MacOS Terminal or Windows Powershell.
+  2) Run the command `dotnet ef database update` to generate the database through Entity Framework Core.
+  3) (Optional) To update the database with any changes to the code, run the command `dotnet ef migrations add <MigrationsName>` which will use Entity Framework Core's code-first principle to generate a database update. After, run the previous command `dotnet ef database update` to update the database.
 
-## Learn More
+  #### Launch the API
+  1) Navigate to caribbean-covid-tracker-api/CaribbeanCovidTracker directory using the MacOS Terminal or Windows Powershell.
+  2) Run the command `dotnet run` to have access to the API in Postman or browser.
+------------------------------
+## 🛰️ API Documentation
+Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Using Swagger Documentation 
+For full documentation and to explore the Caribbean Covid Tracker API endpoints with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger/index.html`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+..........................................................................................
+### Endpoints
+Base URL: `https://localhost:5000`
+### Workouts
+Access information about COVID travel.
+#### HTTP Request
+```
+GET /api/Countries
+POST /api/Countries
+GET /api/Countries/{id}
+PUT /api/Countries/{id}
+DELETE /api/Countries/{id}
+```
+#### Example Query
+```
+https://localhost:5000/api/countries/?CountryName=jamaica
+```
+#### Sample JSON Response
+```
+{
+   "country": 1,
+        "countryName": "Jamaica",
+        "openDetails":” ",
+        "openDate": ,
+        "preArrival": "",
+        "quarantine": "",
+        "positiveTest": “”
+}
 
-### Code Splitting
+```
+### ✉️ Contact and Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you have any feedback or concerns, please contact Johnny Duverseau via Github.
+------------------------------
+### ⚖️ License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (c) 2020 Janet Karpenske. All Rights Reserved.
+```
+MIT License
 
-### Analyzing the Bundle Size
+Copyright (c) 2020 Johnny Duverseau.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Making a Progressive Web App
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+<center><a href="#">Return to Top</a></center>

@@ -1,18 +1,20 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'; 
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import '../index.css' 
 
 function Header() {
   return (
   <React.Fragment>
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"> 
+    <div className="header"> 
+  <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark"> 
   <Navbar.Brand href="#home">About</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href="#features">Destinations</Nav.Link>
       <Nav.Link href="#pricing">Pricing</Nav.Link>
-      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+      <NavDropdown title="Countries Details" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Details</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />
@@ -20,13 +22,14 @@ function Header() {
       </NavDropdown>
     </Nav>
     <Nav>
-      <Nav.Link href="#deets">More deets</Nav.Link>
+      <Nav.Link href="#deets"></Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
-        Dank memes
+        Basket
       </Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar> 
+</div>
   </React.Fragment>
   )
 }

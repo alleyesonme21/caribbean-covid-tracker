@@ -3,9 +3,11 @@ import '../index.css';
 
  function Footer() {
   return (
-    <div>
-      <h1 className="foot"> This is a footer</h1>
+    <React.Fragment> 
+    <div className='bigfoot'>
+      <p className="foot">Copyright: 2020</p>
     </div>
+    </React.Fragment>
   )
 }
 export default Footer;
